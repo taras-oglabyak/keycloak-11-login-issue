@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta id="_csrf" name="_csrf" th:content="${_csrf.token}"/>
+    <meta id="_csrf_header" name="_csrf_header" th:content="${_csrf.headerName}"/>
+    <title>Second app</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+<h1>2</h1>
+<h1>Hello, <span th:text="${user}"></span></h1>
+<h3>Roles: <span th:text="${roles}"></span></h3>
+
+<div>
+    <form th:action="@{/logout}" method="POST">
+        <button type="submit">Logout POST</button>
+    </form>
+</div>
+<div>
+    <a th:href="@{/logout}">Logout GET</a>
+</div>
+
+<p>
+    <button id="get-time">Get Time</button>
+    <span id="time-value"></span>
+</p>
+
+<script>
+    $('#get-time').click(
+        function() {
+             $.ajax({
+                type: "POST",
+                url: '/time',
+                beforeSend: function(xhr) {
+                    xhr.setRequestHeader($("meta[name='_csrf_header']").attr("content"), $("meta[name='_csrf']").attr("content"));
+                },
+                success: function(data) {
+                    $('#time-value').text(data);
+                }
+            });
+        }
+    );
+</script>
+</body>
+</html>

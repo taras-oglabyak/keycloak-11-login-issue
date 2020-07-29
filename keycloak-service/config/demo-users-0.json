@@ -1,0 +1,26 @@
+{
+  "realm" : "demo",
+  "users" : [ {
+    "id" : "38adf1c6-6c51-4d62-a980-a96c8177e1d6",
+    "createdTimestamp" : 1595958367828,
+    "username" : "demo",
+    "enabled" : true,
+    "totp" : false,
+    "emailVerified" : false,
+    "credentials" : [ {
+      "id" : "50fb5759-4f85-4fc8-87d0-a44f88c0cd52",
+      "type" : "password",
+      "createdDate" : 1595958373278,
+      "secretData" : "{\"value\":\"PfdQOy6u5I3IxNZWpPqdqsgY/oAhduqE7aWlZPvAakOV7JM5wMf28q1Ia8oMfKgZaBN5moqNpiPU2yQKcJ4I1g==\",\"salt\":\"QVIm24bSZPRSIj2mP6encg==\"}",
+      "credentialData" : "{\"hashIterations\":27500,\"algorithm\":\"pbkdf2-sha256\"}"
+    } ],
+    "disableableCredentialTypes" : [ ],
+    "requiredActions" : [ ],
+    "realmRoles" : [ "offline_access", "uma_authorization", "demo" ],
+    "clientRoles" : {
+      "account" : [ "manage-account", "view-profile" ]
+    },
+    "notBefore" : 0,
+    "groups" : [ ]
+  } ]
+}

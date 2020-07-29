@@ -1,0 +1,14 @@
+version: '2.1'
+
+services:
+  keycloak-service:
+    image: keycloak-service:dev
+    network_mode: host
+    build:
+      context: keycloak-service
+    environment:
+      DB_VENDOR: h2
+
+  redis:
+    image: redis
+    network_mode: host
